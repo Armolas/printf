@@ -27,6 +27,8 @@ int _printf(const char *format, ...)
 			char *s = va_arg(ap, char *);
 			int j;
 
+			if (s == NULL)
+				s = "(null)";
 			for (j = 0 ; s[j] ; j++)
 			{
 				_putchar(s[j]);
