@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 			int b = va_arg(ap, int);
 			printnum(b);
 		}
-		else if (format[i] == '%' && format[i - 1] == '%')
+		else if (format[i] == '%' && (format[i - 1] == '%' || format[i - 1] == '\\'))
 		{
 			_putchar(format[i]);
 			cp++;
