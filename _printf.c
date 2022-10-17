@@ -25,8 +25,6 @@ int _printf(const char *format, ...)
 		else if (format[i] == 's' && format[i - 1] == '%')
 		{
 			char *s = va_arg(ap, char *);
-			if (s == NULL)
-				s = "(null)";
 			int j;
 
 			for (j = 0 ; s[j] ; j++)
