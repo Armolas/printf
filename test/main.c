@@ -20,7 +20,11 @@ int main(void)
     printf("String:[%s]\n", "I am a string !");
     len = _printf("Percent:[%%]\n");
     len2 = printf("Percent:[%%]\n");
-    printf("%d\n", len);
+    _printf("Len:[%d]\n", len);
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    _printf("Negative:[%d]\n", -762534);
+    printf("Negative:[%d]\n", -762534);
     printf("%d\n", len2);
     return (0);
 }

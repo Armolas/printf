@@ -35,6 +35,17 @@ int _printf(const char *format, ...)
 				cp++;
 			}
 		}
+		else if (format[i] == 'd' && format[i - 1] == '%')
+		{
+			int d = va_arg(ap, int);
+
+			printnum(d);
+		}
+		else if (format[i] == 'i' && format[i - 1] == '%')
+		{
+			int b = va_arg(ap, int);
+			printnum(b);
+		}
 		else if (format[i] == '%' && format[i - 1] == '%')
 		{
 			_putchar(format[i]);

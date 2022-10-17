@@ -38,14 +38,13 @@ int _printf(const char *format, ...)
 		else if (format[i] == 'd' && format[i - 1] == '%')
 		{
 			int d = va_arg(ap, int);
-			_putchar('0' + d);
-			cp++;
+
+			printnum(d);
 		}
 		else if (format[i] == 'i' && format[i - 1] == '%')
 		{
 			int b = va_arg(ap, int);
-			_putchar('0' + b);
-			cp++;
+			printnum(b);
 		}
 		else if (format[i] == '%' && format[i - 1] == '%')
 		{
