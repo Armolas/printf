@@ -9,5 +9,8 @@
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _str_cnt(char *s);
+size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);
+int fputc(int c, FILE *stream);
+int fputs(const char *s, FILE *stream);
 
 #endif /* MAIN_H */
