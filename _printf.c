@@ -10,8 +10,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	int written;
-	int length, i;
-	char *s;
+	int i;
 
 	i = 0;
 	written = 0;
