@@ -67,7 +67,7 @@ size_t _fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)
  */
 int _fputc(int c, FILE *stream)
 {
-	return (_fwrite(&c, 1, 1, stream);
+	return (_fwrite(&c, 1, 1, stream));
 }
 
 /**
