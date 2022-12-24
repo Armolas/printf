@@ -35,7 +35,7 @@ int _str_cnt(char *s)
  *
  * Return: size_t
  */
-size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)
+size_t _fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream) 
 {
 	size_t i;
 	size_t j;
@@ -48,7 +48,7 @@ size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)
 	{
 		for (j = 0; j < size; j++)
 		{
-			if (fputc(p[i * size * j], strem) == EOF)
+			if (fputc(p[i* size + j], stream) == EOF)
 			{
 				return (written);
 			}
@@ -65,9 +65,9 @@ size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)
  *
  * Return: int number of char written
  */
-int fputc(int c, FILE *stream)
+int _fputc(int c, FILE *stream)
 {
-	return (fwrite(&c, 1, 1, stream));
+	return (_fwrite(&c, 1, 1, stdout));
 }
 
 /**
@@ -77,16 +77,16 @@ int fputc(int c, FILE *stream)
  *
  * Return: 0
  */
-int fputs(const char *s, FILE *stream)
+int _fputs(const char *s, FILE *stream)
 {
 	int c;
 
 	while (*s != '\0')
 	{
 		c = *s;
-		if (fputc(c, stream) == EOF)
+		if (_fputc(c, stdout) == EOF)
 		{
-			return EOF;
+			return (EOF);
 		}
 		s++;
 	}

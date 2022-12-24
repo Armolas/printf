@@ -1,60 +1,54 @@
 #include "main.h"
 
 /**
- * _printf - formatted printing as the real printf in C
- * @format: string to print (includes specifiers)
- *
- * Return: numbers of characters printed
+ * _printf - prints a string and substituting formats as needed
+ * @format: last param before variadic & holding str
+ * 
+ * Return: int (num of args writte)
  */
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int str_count = 0, i = 0, j;
-	char single_char, *str;
+	int written;
+	int length, i;
+	char *s;
 
-	/* checks if format holds a value */
-	if (format == NULL)
-		return (0);
-
-	/* start the variadic */
+	i = 0;
+	written = 0;
 	va_start(ap, format);
 
-	/* loop through the strings for printing and getting format specifiers */
-	while (*format)
+	while (format[i])
 	{
-		/* once it meets a specifier */
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			/* check what kind of specifier it is */
-			switch (*(format + 1))
+			switch(format[++i])
 			{
 				case 'c':
-					_putchar((char)va_arg(ap, int));
+					_fputc(va_arg(ap, int), stdout);
+					written++;
 					break;
 				case 's':
-					str = va_arg(ap, char*);
-					j = _str_cnt(str);
-					/* loops through the string */
-					for (i = 0; i < j; i++)
-						_putchar(str[i]);
+					_fputs(va_arg(ap, char *), stdout);
+					written++;
 					break;
 				case '%':
-					_putchar((char)va_arg(ap, int));
+					_putchar('%');
+					written++;
 					break;
 				default:
-					_putchar(*format);
+					_putchar('%');
+					_fputc(format[i], stdout);
+					written++;
 					break;
 			}
-			str_count++;
 		}
 		else
 		{
-			/* print other characters */
-			_putchar(*format);
-			str_count++;
+			_fputc(format[i], stdout);
+			written++;
 		}
-		format++;
+		i++;
 	}
 	va_end(ap);
-	return (str_count);
+	return (written);
 }
