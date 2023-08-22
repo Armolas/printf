@@ -38,7 +38,6 @@ Formatting floating-point numbers: printf("Value: %.2f\n", 3.14159);
 Example Usage:
 
 c
-Copy code
 #include <stdio.h>
 
 int main() {
