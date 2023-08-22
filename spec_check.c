@@ -9,6 +9,7 @@
 int spec(char f, char nf, va_list ap)
 {
 	int pc = 0;
+	unsigned int ui;
 
 	if (f == 'c')
 		pc += _putchar((char) va_arg(ap, int));
@@ -27,6 +28,14 @@ int spec(char f, char nf, va_list ap)
 		}
 		else
 			return (-1);
+	}
+	else if (f == 'b')
+	{
+		ui = va_arg(ap, unsigned int);
+		if (ui == 0)
+			pc += _putchar('0');
+		else
+			pc += print_bin(ui);
 	}
 	else
 	{
