@@ -37,6 +37,35 @@ int spec(char f, char nf, va_list ap)
 		else
 			pc += print_bin(ui);
 	}
+	else if (f == 'u' || f == 'o' || f == 'x' || f == 'X')
+		pc += spec_2(f, ap);
+	else
+	{
+		pc += _putchar('%');
+		pc += _putchar(f);
+	}
+	return (pc);
+}
+
+
+/**
+ * spec_2 - checks for a specifier and prints the appropriate value
+ * @f: format specifier
+ * @ap: argument parameter
+ * Return: number of characters printed
+ */
+int spec_2(char f, va_list ap)
+{
+	int pc = 0;
+
+	if (f == 'u')
+		pc += print_uns(va_arg(ap, unsigned int));
+	else if (f == 'o')
+		pc += print_oct(va_arg(ap, unsigned int));
+	else if (f == 'x')
+		pc += print_hex(va_arg(ap, unsigned int));
+	else if (f == 'X')
+		pc += print_HEX(va_arg(ap, unsigned int));
 	else
 	{
 		pc += _putchar('%');
