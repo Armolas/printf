@@ -3,7 +3,6 @@ The printf function is a fundamental and widely used function in the C programmi
 Function Prototype:
 
 c
-Copy code
 int printf(const char *format, ...);
 Key Characteristics and Usage:
 
