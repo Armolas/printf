@@ -15,4 +15,6 @@ int print_oct(unsigned int);
 int print_hex(unsigned int);
 int print_HEX(unsigned int);
 int print_uns(unsigned int);
+int print_rev(char *);
+int rot13(char *);
 #endif

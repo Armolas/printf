@@ -85,6 +85,10 @@ int spec_2(char f, va_list ap)
 		else
 			pc += print_HEX(n);
 	}
+	else if (f == 'r')
+		pc += print_rev(va_arg(ap, char *));
+	else if (f == 'R')
+		pc += rot13(va_arg(ap, char *));
 	else
 	{
 		pc += _putchar('%');
