@@ -57,15 +57,34 @@ int spec(char f, char nf, va_list ap)
 int spec_2(char f, va_list ap)
 {
 	int pc = 0;
+	unsigned int n;
 
 	if (f == 'u')
 		pc += print_uns(va_arg(ap, unsigned int));
 	else if (f == 'o')
-		pc += print_oct(va_arg(ap, unsigned int));
+	{
+		n = va_arg(ap, unsigned int);
+		if (n == 0)
+			pc += _putchar('0');
+		else
+			pc += print_oct(n);
+	}
 	else if (f == 'x')
-		pc += print_hex(va_arg(ap, unsigned int));
+	{
+		n = va_arg(ap, unsigned int);
+		if (n == 0)
+			pc += _putchar('0');
+		else
+			pc += print_hex(n);
+	}
 	else if (f == 'X')
-		pc += print_HEX(va_arg(ap, unsigned int));
+	{
+		n = va_arg(ap, unsigned int);
+		if (n == 0)
+			pc += _putchar('0');
+		else
+			pc += print_HEX(n);
+	}
 	else
 	{
 		pc += _putchar('%');
