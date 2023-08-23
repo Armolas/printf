@@ -6,20 +6,18 @@
  */
 int rot13(char *s)
 {
-	int i, j, pc = 0;
-	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i, pc = 0;
 
 	for (i = 0 ; s[i] != '\0' ; i++)
 	{
-		for (j = 0 ; j < 52 ; j++)
-		{
-			if (s[i] == in[j])
-			{
-				pc += _putchar(out[j]);
-				break;
-			}
-		}
+		if (s[i] >= 'A' && s[i] <= 'M')
+			pc += _putchar(s[i] + 13);
+		else if (s[i] >= 'N' && s[i] <= 'Z')
+			pc += _putchar(s[i] - 13);
+		else if (s[i] >= 'a' && s[i] <= 'm')
+			pc += _putchar(s[i] + 13);
+		else if (s[i] >= 'n' && s[i] < 'z')
+			pc += _putchar(s[i] - 13);
 	}
 	return (pc);
 }
