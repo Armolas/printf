@@ -12,7 +12,7 @@ int spec(char f, char nf, va_list ap)
 	unsigned int ui;
 
 	if (f == 'c')
-		pc += _putchar((char) va_arg(ap, int));
+		pc += _putchar(va_arg(ap, int));
 	else if (f == 's')
 		pc += print_str(va_arg(ap, char *));
 	else if ((f == 'i') || (f == 'd'))

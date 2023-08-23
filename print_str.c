@@ -15,8 +15,7 @@ int print_str(char *s)
 	}
 	for (i = 0 ; s[i] != '\0' ; i++)
 	{
-		_putchar(s[i]);
-		c++;
+		c += _putchar(s[i]);
 	}
 	return (c);
 }
