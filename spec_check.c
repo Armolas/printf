@@ -37,7 +37,8 @@ int spec(char f, char nf, va_list ap)
 		else
 			pc += print_bin(ui);
 	}
-	else if (f == 'u' || f == 'o' || f == 'x' || f == 'X')
+	else if (f == 'u' || f == 'o' || f == 'x' || f == 'X' ||
+			f == 'r' || f == 'R')
 		pc += spec_2(f, ap);
 	else
 	{

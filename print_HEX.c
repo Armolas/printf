@@ -10,7 +10,7 @@ int print_HEX(unsigned int n)
 
 	if (n == 0)
 		return (c);
-	c += print_hex(n / 16);
+	c += print_HEX(n / 16);
 	if (n % 16 < 10)
 		_putchar((n % 16) + '0');
 	else
