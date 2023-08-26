@@ -38,7 +38,7 @@ int spec(char f, char nf, va_list ap)
 			pc += print_bin(ui);
 	}
 	else if (f == 'u' || f == 'o' || f == 'x' || f == 'X' ||
-			f == 'r' || f == 'R')
+			f == 'r' || f == 'R' || f == 'S')
 		pc += spec_2(f, ap);
 	else
 	{
@@ -86,14 +86,11 @@ int spec_2(char f, va_list ap)
 		else
 			pc += print_HEX(n);
 	}
+	else if (f == 'S')
+		pc += print_S(va_arg(ap, char *));
 	else if (f == 'r')
 		pc += print_rev(va_arg(ap, char *));
 	else if (f == 'R')
 		pc += rot13(va_arg(ap, char *));
-	else
-	{
-		pc += _putchar('%');
-		pc += _putchar(f);
-	}
 	return (pc);
 }

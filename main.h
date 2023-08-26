@@ -17,4 +17,5 @@ int print_HEX(unsigned int);
 int print_uns(unsigned int);
 int print_rev(char *);
 int rot13(char *);
+int print_S(char *);
 #endif
